@@ -13,5 +13,8 @@ class Boundary(models.Model):
     # set geometry field to be MultiPolygonField
     geom = models.MultiPolygonField(srid=4326)
 
+    class Meta:
+        verbose_name_plural = "Boundaries"
+
     def __str__(self):
         return self.name
