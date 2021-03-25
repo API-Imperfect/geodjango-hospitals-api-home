@@ -1,0 +1,46 @@
+FROM python:3.9.2-slim-buster
+
+#The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile
+WORKDIR /app
+
+LABEL maintainer="api.imperfect@gmail.com"
+LABEL description="Development image for the Hospitals GeoDjango API"
+
+#set environment variables
+#Prevents Python from writing .pyc files to disc
+ENV PYTHONDONTWRITEBYTECODE 1
+
+#means that the python output is transimitted directly to the terminal without being buffered and that allows displaying the applications output in real-time
+ENV PYTHONUNBUFFERED 1
+
+# install system dependencies
+# -y switch ensures the build does not stop and a
+# ask for a user prompt
+RUN apt-get update \
+    && apt-get -y install netcat gcc postgresql \
+    && apt-get clean
+
+#setup GDAL - Geospatial Data Abstraction Library 
+# a library for reading and writing raster and vector geospatial data formats,
+RUN apt-get update \
+    && apt-get install -y binutils libproj-dev gdal-bin python-gdal python3-gdal
+
+#upgrade pip version
+RUN pip install --upgrade pip
+
+
+COPY ./requirements.txt /app/requirements.txt
+
+#install requirements.txt
+RUN pip install -r requirements.txt
+
+#copy over the project
+COPY . /app
+
+#Don't run your images/containers with the default root user
+#create a separate user with rights to run the processes in our
+#application only
+#RUN useradd -D user
+ 
+#switch to the user just created
+#USER user
