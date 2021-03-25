@@ -31,3 +31,6 @@ down-v:
 
 volume:
 	docker volume inspect hospitals-src_postgres_data
+
+shell:
+	docker-compose exec api python3 manage.py shell	
