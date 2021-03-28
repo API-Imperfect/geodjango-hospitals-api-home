@@ -9,7 +9,7 @@ hospital_mapping = {
     "lon": "Long",
     "lat": "Lat",
     "fid": "FID",
-    "mpoly": "MULTIPOINT",
+    "geom": "POINT",
 }
 
 hospital_shp = Path(__file__).resolve().parent / "data" / "Hospitals.shp"

@@ -5,7 +5,11 @@ from .models import Boundary
 
 
 class BoundaryAdmin(LeafletGeoAdmin):
-    list_display = ["name"]
+    list_display = [
+        "pk",
+        "name",
+        "adm1_pcode",
+    ]
 
 
 admin.site.register(Boundary, BoundaryAdmin)

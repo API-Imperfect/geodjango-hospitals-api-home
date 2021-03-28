@@ -47,7 +47,7 @@ DJANGO_APPS = [
     "django.contrib.gis",
 ]
 
-THIRD_PARTY_APPS = ["rest_framework", "rest_framework_gis", "leaflet"]
+THIRD_PARTY_APPS = ["rest_framework", "rest_framework_gis", "leaflet", "django_filters"]
 
 PROJECT_APPS = ["hospitals.apps.HospitalsConfig", "boundaries.apps.BoundariesConfig"]
 
@@ -144,4 +144,9 @@ LEAFLET_CONFIG = {
     "MIN_ZOOM": 3,
     "SCALE": "both",
     "ATTRIBUTION_PREFIX": "API-Imperfect Hospitals API",
+}
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",)
 }

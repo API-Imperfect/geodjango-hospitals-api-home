@@ -9,7 +9,8 @@ class Hospital(models.Model):
     fid = models.IntegerField(_("Field ID"))
 
     # GeoDjango-specific: a geometry field (MultiPointField)
-    mpoly = models.MultiPointField()
+    # with Spatial Reference System Identity
+    geom = models.PointField(srid=4326)
 
     def __str__(self):
         return self.name

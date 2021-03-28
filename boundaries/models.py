@@ -11,6 +11,7 @@ class Boundary(models.Model):
     adm1_pcode = models.CharField(max_length=254)
 
     # set geometry field to be MultiPolygonField
+    # with Spatial Reference System Identity
     geom = models.MultiPolygonField(srid=4326)
 
     class Meta:
