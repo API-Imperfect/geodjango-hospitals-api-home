@@ -11,6 +11,7 @@ class Hospital(models.Model):
     # GeoDjango-specific: a geometry field (MultiPointField)
     # with Spatial Reference System Identity
     geom = models.PointField(srid=4326)
+    # distance = models.CharField(_("Distance"), max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.name
