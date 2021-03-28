@@ -9,4 +9,3 @@ class HospitalViewSet(viewsets.ModelViewSet):
     queryset = Hospital.objects.all()
     serializer_class = HospitalSerializer
     filterset_class = HospitalsFilter
-    # filterset_fields = ["adm1_pcode", "name"]

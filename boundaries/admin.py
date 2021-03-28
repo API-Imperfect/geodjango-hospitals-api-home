@@ -10,6 +10,7 @@ class BoundaryAdmin(LeafletGeoAdmin):
         "name",
         "adm1_pcode",
     ]
+    list_display_links = ["name"]
 
 
 admin.site.register(Boundary, BoundaryAdmin)
