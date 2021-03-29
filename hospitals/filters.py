@@ -15,8 +15,8 @@ class HospitalsFilter(GeoFilterSet):
         exclude = ["geom"]
 
     def get_hospitals_by_province(self, queryset, name, value):
-        filter_boundary = Boundary.objects.filter(pk=value)
-        if filter_boundary:
-            obj = filter_boundary.first()
-            return queryset.filter(geom__within=obj.geom)
+        filtered_boundary = Boundary.objects.filter(pk=value)
+        if filtered_boundary:
+            boundary = filtered_boundary.first()
+            return queryset.filter(geom__within=boundary.geom)
         return queryset
