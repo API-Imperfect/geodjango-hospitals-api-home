@@ -5,7 +5,7 @@ from .models import Hospital
 
 
 class HospitalAdmin(LeafletGeoAdmin):
-    list_display = ["name", "lon", "lat"]
+    list_display = ["name", "lon", "lat", "beds"]
 
 
 admin.site.register(Hospital, HospitalAdmin)

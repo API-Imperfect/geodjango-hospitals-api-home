@@ -6,3 +6,8 @@ urlpatterns = [
     path("", include("hospitals.urls")),
     path("", include("boundaries.urls")),
 ]
+
+
+admin.site.site_header = "Hospitals Admin"
+admin.site.site_title = "Rwanda GIS Admin Portal"
+admin.site.index_title = "Welcome to Rwanda GIS Portal"
