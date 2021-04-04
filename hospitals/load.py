@@ -9,6 +9,7 @@ hospital_mapping = {
     "lon": "Long",
     "lat": "Lat",
     "fid": "FID",
+    "beds": "beds",
     "geom": "POINT",
 }
 

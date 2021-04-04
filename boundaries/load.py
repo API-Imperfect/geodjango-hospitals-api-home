@@ -4,7 +4,7 @@ from django.contrib.gis.utils import LayerMapping
 
 from .models import Boundary
 
-rwandaborder_mapping = {
+boundary_mapping = {
     "adm0_en": "ADM0_EN",
     "adm0_sw": "ADM0_SW",
     "adm0_pcode": "ADM0_PCODE",
@@ -20,7 +20,5 @@ boundary_shp = (
 
 
 def run(verbose=True):
-    lm = LayerMapping(
-        Boundary, str(boundary_shp), rwandaborder_mapping, transform=False
-    )
+    lm = LayerMapping(Boundary, str(boundary_shp), boundary_mapping, transform=False)
     lm.save(strict=True, verbose=verbose)

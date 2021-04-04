@@ -6,9 +6,9 @@ class Boundary(models.Model):
     adm0_en = models.CharField(max_length=254)
     adm0_sw = models.CharField(max_length=254)
     adm0_pcode = models.CharField(max_length=254)
-    name = models.CharField(_("Border Name"), max_length=254)
+    name = models.CharField(_("Boundary Name"), max_length=254)
     adm1_rw = models.CharField(max_length=254)
-    adm1_pcode = models.CharField(_("Border Code"), max_length=254)
+    adm1_pcode = models.CharField(_("Boundary Code"), max_length=254)
 
     # set geometry field to be MultiPolygonField
     # with Spatial Reference System Identity

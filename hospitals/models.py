@@ -7,11 +7,11 @@ class Hospital(models.Model):
     lon = models.FloatField(_("Longitude"))
     lat = models.FloatField(_("Latitude"))
     fid = models.IntegerField(_("Field ID"))
+    beds = models.IntegerField(_("Bed Numbers"), default=1)
 
-    # GeoDjango-specific: a geometry field (MultiPointField)
+    # GeoDjango-specific: a geometry field (PointField)
     # with Spatial Reference System Identity
     geom = models.PointField(srid=4326)
-    # distance = models.CharField(_("Distance"), max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.name
