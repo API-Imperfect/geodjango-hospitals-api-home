@@ -29,6 +29,7 @@ services:
          - 5432:5432
       #volume for persistent storage
       volumes:
+         # - data-volume:/var/lib/postgresql
          - postgres_data:/var/lib/postgresql
       environment:
          - POSTGRES_USER=${POSTGRES_USER}

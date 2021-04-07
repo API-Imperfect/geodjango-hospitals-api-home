@@ -18,5 +18,5 @@ class HospitalsFilter(GeoFilterSet):
         filtered_boundary = Boundary.objects.filter(pk=value)
         if filtered_boundary:
             boundary = filtered_boundary.first()
-            return queryset.filter(geom__within=boundary.geom)
-        return queryset
+            hospitals_in_province = queryset.filter(geom__within=boundary.mpoly)
+        return hospitals_in_province

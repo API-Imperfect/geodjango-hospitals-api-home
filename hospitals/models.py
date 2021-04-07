@@ -1,3 +1,4 @@
+from boundaries.models import Boundary
 from django.contrib.gis.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -8,6 +9,8 @@ class Hospital(models.Model):
     lat = models.FloatField(_("Latitude"))
     fid = models.IntegerField(_("Field ID"))
     beds = models.IntegerField(_("Bed Numbers"), default=1)
+    province_name = models.CharField(_("Province"), max_length=100)
+    province_code = models.CharField(_("Province Code"), max_length=1)
 
     # GeoDjango-specific: a geometry field (PointField)
     # with Spatial Reference System Identity

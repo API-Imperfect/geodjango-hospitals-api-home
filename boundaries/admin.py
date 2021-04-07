@@ -8,7 +8,7 @@ class BoundaryAdmin(LeafletGeoAdmin):
     list_display = [
         "pk",
         "name",
-        "adm1_pcode",
+        "pcode",
     ]
     list_display_links = ["name"]
 

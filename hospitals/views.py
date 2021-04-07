@@ -1,3 +1,4 @@
+from boundaries.models import Boundary
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import D
 from django.db.models import Sum
@@ -21,8 +22,15 @@ class HospitalViewSet(viewsets.ModelViewSet):
         return Response(bed_capacity)
 
     @action(detail=False, methods=["get"])
+    def province_beds_capacity(self, request):
+        province_bed_capacity = Hospital.objects.values("province_name").annotate(
+            bed_capacity=Sum("beds")
+        )
+        return Response(province_bed_capacity)
+
+    @action(detail=False, methods=["get"])
     def closest_hospitals(self, request):
-        """Get hospitals that are at least 3 km from a users location"""
+        """Get hospitals that are at least 3 km or less from a users location"""
         longitude = request.GET.get("lon", None)
         latitude = request.GET.get("lat", None)
 

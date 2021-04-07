@@ -10,6 +10,8 @@ hospital_mapping = {
     "lat": "Lat",
     "fid": "FID",
     "beds": "beds",
+    "province_name": "ADM1_EN",
+    "province_code": "ADM1_PCODE",
     "geom": "POINT",
 }
 
