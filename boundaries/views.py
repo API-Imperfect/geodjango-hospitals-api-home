@@ -10,5 +10,5 @@ class BoundaryViewset(viewsets.ModelViewSet):
     serializer_class = BoundarySerializer
 
     def get_queryset(self):
-        boundary_area = Boundary.objects.annotate(area=Area("mpoly"))
+        boundary_area = Boundary.objects.annotate(area=Area("mpoly")).order_by("area")
         return boundary_area

@@ -19,7 +19,7 @@ services:
       depends_on:
          - postgres-db
       networks:
-         - hospital-api
+         - hospital-api-h
 
    postgres-db:
       # we use an image that has PostgreSQL and PostGIS which is
@@ -29,15 +29,14 @@ services:
          - 5432:5432
       #volume for persistent storage
       volumes:
-         # - data-volume:/var/lib/postgresql
-         - postgres_data:/var/lib/postgresql
+         - postgres_data_h:/var/lib/postgresql
       environment:
          - POSTGRES_USER=${POSTGRES_USER}
          - POSTGRES_PASS=${POSTGRES_PASS}
          - POSTGRES_DBNAME=${POSTGRES_DBNAME}
       restart: "on-failure"
       networks:
-         - hospital-api
+         - hospital-api-h
 
    nginx:
       restart: always
@@ -49,11 +48,11 @@ services:
       ports:
          - 8080:80
       networks:
-         - hospital-api
+         - hospital-api-h
 
 networks:
-   hospital-api:
+   hospital-api-h:
       driver: bridge
 
 volumes:
-   postgres_data:
+   postgres_data_h:
